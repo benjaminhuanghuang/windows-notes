@@ -53,6 +53,7 @@ rpm -qa | grep ssh 可以看到系统中ssh安装包
 ```
 
 
+<<<<<<< HEAD
 ## Check ssh status
 ```
   netstat -ntlp
@@ -72,3 +73,23 @@ rpm -qa | grep ssh 可以看到系统中ssh安装包
 Port 22 does not work because Windows comes with a built in SSH server.
 
 
+=======
+Enable ssh server on Ubuntu
+```
+  sudo apt-get install openssh-server
+
+  sudo /etc/init.d/ssh start
+  sudo /etc/init.d/ssh stop
+  sudo /etc/init.d/ssh restart
+
+  ps -e | grep ssh
+```
+
+
+send file from Windows to linux
+
+Install Putty
+```
+  pscp -P 22 d:\test.zip ben@192.168.1.80:/mnt/d/download
+```
+>>>>>>> 263771932612fe299ac5cd37eb996d57daa17f6d
