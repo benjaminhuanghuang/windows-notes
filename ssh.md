@@ -10,8 +10,10 @@
 
   sudo service ssh --full-restart   # restart service
 ```
+Change port to 2222 because Windows comes with a built in SSH server.
 
-2. add portproxy rull
+
+2. Add portproxy rull
 ```
   netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=2222 connectaddress=172.23.129.80 connectport=2222
 ```
@@ -34,28 +36,10 @@ or use GUI
   wf.msc
 ```
 
-
-
-## Readhat
-```
-rpm -qa | grep ssh 可以看到系统中ssh安装包
-```
-
-## Enable ssh server in Linux
-```
-  sudo dpkg-reconfigure openssh-server
-
-  sudo service ssh start
-
-  sudo vi /etc/ssh/sshd_config    # allow usename/password connect
-
-  sudo servie ssh restart
-```
-
-
-<<<<<<< HEAD
 ## Check ssh status
 ```
+  ps -e | grep ssh        # sshd process
+
   netstat -ntlp
   如果看到如下内容:
   tcp 0 0 0.0.0.0:22 0.0.0.0:* LISTEN
@@ -69,27 +53,9 @@ rpm -qa | grep ssh 可以看到系统中ssh安装包
   lsof -i :22
 ```
 
-## SSH into WSL
-Port 22 does not work because Windows comes with a built in SSH server.
-
-
-=======
-Enable ssh server on Ubuntu
-```
-  sudo apt-get install openssh-server
-
-  sudo /etc/init.d/ssh start
-  sudo /etc/init.d/ssh stop
-  sudo /etc/init.d/ssh restart
-
-  ps -e | grep ssh
-```
-
-
-send file from Windows to linux
+## Send file from Windows to linux
 
 Install Putty
 ```
   pscp -P 22 d:\test.zip ben@192.168.1.80:/mnt/d/download
 ```
->>>>>>> 263771932612fe299ac5cd37eb996d57daa17f6d
