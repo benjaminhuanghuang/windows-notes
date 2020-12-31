@@ -16,9 +16,10 @@ Window terminal can be used for cmd.exe, PowerShell, WSL shell
 
   wsl --set-version Ubuntu-20.04 2    # set wsl 2
 
-  wsl --set-default-version 2         # set wsl 2 to all distro
+  # set wsl 2 to all distro, need to enable cpu virtualization in BIOS and enable VM platform feature
+  wsl --set-default-version 2         
 
-  dir c: | wsl wc -l                  # work together
+  dir c: | wsl wc -l                  # windows command > linux command
 
 
   wsl --set-default Ubuntu-20.04      # set default distro
