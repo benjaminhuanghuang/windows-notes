@@ -1,4 +1,4 @@
-## Enable ssh server in Kali (WSL2)
+## Enable ssh server in WSL2
 
 1. Install openssh-server in wsl
 ```
@@ -13,9 +13,13 @@
 Change port to 2222 because Windows comes with a built in SSH server.
 
 
-2. Add portproxy rull
+2. Add portproxy rule
+get address in linux
 ```
-  netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=2222 connectaddress=172.23.129.80 connectport=2222
+  ip addr | grep eth0
+```
+```
+  netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=2222 connectaddress=172.29.153.66 connectport=2222
 ```
 
 list all protproxy rules
