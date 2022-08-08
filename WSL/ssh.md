@@ -16,13 +16,24 @@ SSH默认端口是22，但Windows中内置了SSH Server For Windows占用了22�
   sudo service ssh --full-restart   # restart service
 ```
 
-2. Add portproxy rule
+
+
+
+让和宿主机同处一个局域网的其它计算机也能连接上虚拟机，需要配置宿主机的端口转发。
+
+1. Add portproxy rule
+
+```
+  netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=2222 connectaddress=172.29.149.140 connectport=2222
+
+  listenport：宿主机 Windows 监听端口（这里指定为 2222）
+  listenaddress：宿主机 Windows 监听 IP 地址（0.0.0.0 表示同一局域网的所有 IP 地址）
+  connectport：WSL2 的 SSH 服务端口（一般默认 2222）
+  connectaddress：WSL2 的 SSH 服务 IP 地址
+```
 get address in linux
 ```
   ip addr | grep eth0
-```
-```
-  netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=2222 connectaddress=172.29.149.140 connectport=2222
 ```
 
 list all protproxy rules
@@ -36,9 +47,12 @@ remove them all
   netsh interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=2222
 ```
 
-3. open firewall
+2. 配置防火墙出入站规则
 ```
   netsh advfirewall firewall add rule name="Open Port 2222 for WSL2" dir=in action=allow protocol=TCP localport=2222
+
+
+  netsh advfirewall firewall show rule name="Open Port 2222 for WSL2" 
 ``` 
 or use GUI
 ```
