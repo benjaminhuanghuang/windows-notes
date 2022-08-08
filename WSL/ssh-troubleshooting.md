@@ -9,9 +9,11 @@ Fix `kex_exchange_identification: Connection closed by remote host`
 ```
 ```
 
-Fix `ssh: connect to host 172.29.149.140 port 2222: Connection refused'
+Fix `ssh: connect to host 172.29.149.140 port 2222: Connection refused`
 ```
+# check ssh service status
 sudo service ssh status
 
+# check configration of the port
 grep Port /etc/ssh/sshd_config
 ```

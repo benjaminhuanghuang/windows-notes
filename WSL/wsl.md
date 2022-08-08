@@ -5,6 +5,16 @@
 	wsl -l -v     # list all distro
 ```
 
+## 获取当前wsl的ip地址
+```
+wsl -- hostname -I
+```
+
+## Shutdown
+```
+  wsl --shutdown
+```
+
 - Use wsl.exe
 ```
   

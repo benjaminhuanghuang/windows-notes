@@ -32,6 +32,8 @@ list all protproxy rules
 remove them all 
 ```
   netsh interface portproxy reset all
+
+  netsh interface portproxy delete v4tov4 listenaddress=0.0.0.0 listenport=2222
 ```
 
 3. open firewall
