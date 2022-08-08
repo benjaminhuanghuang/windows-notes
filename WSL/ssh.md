@@ -1,17 +1,20 @@
 ## Enable ssh server in WSL2
 
 1. Install openssh-server in wsl
+
+SSH默认端口是22，但Windows中内置了SSH Server For Windows占用了22端口，因此如果要在WSL中开启SSH Server，必须修改WSL中的默认SSH监听端口
+
 ```
   sudo apt-get install openssh-server
 
   sudo service ssh start
 
-  sudo vi /etc/ssh/sshd_config    # Port 2222, PasswordAuthentication yes
+  sudo vim /etc/ssh/sshd_config    
+  # Port 2222
+  # PasswordAuthentication yes
 
   sudo service ssh --full-restart   # restart service
 ```
-Change port to 2222 because Windows comes with a built in SSH server.
-
 
 2. Add portproxy rule
 get address in linux
@@ -19,7 +22,7 @@ get address in linux
   ip addr | grep eth0
 ```
 ```
-  netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=2222 connectaddress=172.29.153.66 connectport=2222
+  netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=2222 connectaddress=172.29.149.140 connectport=2222
 ```
 
 list all protproxy rules

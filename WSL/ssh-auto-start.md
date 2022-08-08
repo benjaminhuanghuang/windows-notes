@@ -1,0 +1,1 @@
+/etc/init.wsl文件中添加service ssh start设置ssh服务开机自启
