@@ -6,6 +6,9 @@ netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=2222 conne
 
 netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=2222 connectaddress=localhost connectport=2222
 
+# this line works
+netsh interface portproxy add v4tov4 listenaddress=127.0.0.1 listenport=2222 connectaddress=172.23.53.110 connectport=2222
+
 
 netsh interface portproxy show all
 
