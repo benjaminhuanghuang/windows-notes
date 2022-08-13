@@ -2,10 +2,12 @@
 https://github.com/PowerShell/PSReadLine
 
 - How to set up an awesome prompt with your Git Branch, Windows Terminal, PowerShell, + Cascadia Code!
-https://www.youtube.com/watch?v=lu__oGZVT98
+
+    https://www.youtube.com/watch?v=lu__oGZVT98 
 
 - Tips & Tricks #1 : How to enable Bash style auto suggestion for PowerShell
-https://www.youtube.com/watch?v=I0iIZe0dUNw
+    
+    https://www.youtube.com/watch?v=I0iIZe0dUNw
 
 
 
